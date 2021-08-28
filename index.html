@@ -21,11 +21,22 @@
     <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
     <canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
   </div>
+  
   <div class="buttons">
+    
+    
     <!-- The drawing rectangle button  -->
     <span class="btn btn-primary fa fa-square" id="drawing-rectangle">Draw Rectangle</span>
     <!-- The drawing line button  -->
     <span class="btn btn-info fa fa-paint-brush" id="drawing-line">Draw Line</span>
+    <!-- Sherman: The eraser square button  -->
+    <span class="btn btn-secondary fa fa-paint-brush" id="eraser-sq">Eraser Square</span>
+    <!-- Sherman: The eraser circle button -->
+    <span class="btn btn-secondary fa fa-paint-brush" id="eraser-cir">Eraser Circle</span>
+    
+
+  </div>  
+    
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -34,12 +45,18 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"></script>
     <!-- The drawing functionality  -->
-    <script src="./javascript/canvas-common.js" type="text/javascript" async defer></script>
+    <script src="./javascript/canvas-common.js" type="text/javascript"></script>
 
     <!-- The drawing line functionality  -->
-    <script src="./javascript/drawing-line.js" type="text/javascript" async defer></script>
+    <script src="./javascript/drawing-line.js" type="text/javascript"></script>
     <!-- The drawing rectangle functionality  -->
-    <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script>
+    <script src="./javascript/drawing-rectangle.js" type="text/javascript"></script>
+    <!-- Sherman: The eraser.sq functionality -->
+    <script src="./javascript/eraser-square.js" type="text/javascript"></script>
+    <!-- Sherman: The eraser.cir functionality -->
+    <script src="./javascript/eraser-circle.js" type="text/javascript"></script>
+
+    <!-- Text.javascript -->
     <script type="text/javascript">
       $(() => {
         currentFunction = new DrawingLine(contextReal)
@@ -48,6 +65,14 @@
         });
         $("#drawing-line").click(() => {
           currentFunction = new DrawingLine(contextReal);
+        });
+        // Sherman's eraser - square
+        $("#eraser-sq").click(() => {
+          currentFunction = new EraserSquare(contextReal);
+        });
+        //Sherman's eraser - circle
+        $("#eraser-cir").click(() => {
+          currentFunction = new EraserCircle(contextReal);
         });
       })
     </script>
