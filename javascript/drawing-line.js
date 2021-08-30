@@ -10,19 +10,21 @@ class DrawingLine extends PaintFunction {
 
   constructor(contextReal) {
     super();
-    this.context = contextReal;
+    this.contextReal = contextReal;
   }
 
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.strokeStyle = "#df4b26";
+    this.contextReal.strokeStyle = `${pickrColorStroke}`;
+    // End cap of line
+    this.contextReal.lineCap = "round";
     // Kind of line
-    this.context.lineJoin = "round";
+    this.contextReal.lineJoin = "round";
     // Width of line
-    this.context.lineWidth = 5;
+    this.contextReal.lineWidth = 15;
     // Drawing the line here
-    this.context.beginPath();
+    this.contextReal.beginPath();
     // this.context.moveTo(coord[0], coord[1]);
     // this.draw(coord[0], coord[1]);
   }
@@ -32,16 +34,24 @@ class DrawingLine extends PaintFunction {
   }
 
   onMouseMove() {}
-  onMouseUp() {}
+
+  onMouseUp() {
+    historyArray.push(
+      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
+    );
+    historyIndex += 1;
+    console.log(`Current History Index : ${historyIndex}`);
+  }
+
   onMouseLeave() {}
   onMouseEnter() {}
 
   draw(x, y) {
     //
-    this.context.lineTo(x, y);
+    this.contextReal.lineTo(x, y);
     // this.context.moveTo(x, y);
     // this.context.closePath();
     // Draw the line onto the page
-    this.context.stroke();
+    this.contextReal.stroke();
   }
 }
