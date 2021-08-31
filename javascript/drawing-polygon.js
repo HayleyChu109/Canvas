@@ -3,8 +3,7 @@ class DrawingPolygon extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.sides = 5;
-    resetDrawing = false;
+    this.sides = 6;
   }
 
   onMouseDown(coord, event) {
@@ -12,63 +11,87 @@ class DrawingPolygon extends PaintFunction {
     this.contextReal.fillStyle = `${pickrColorFill}`;
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.contextReal.lineJoin = "miter";
-    this.sides = 5;
-
-    // resetDrawing = false;
+    this.origX = coord[0];
+    this.origY = coord[1];
+    console.log(this.origX, this.origY);
   }
 
-  onDragging(coord, event) {}
+  onDragging(coord, event) {
+    this.contextDraft.lineWidth = 5;
+    this.contextDraft.strokeStyle = `${pickrColorStroke}`;
+    this.contextDraft.fillStyle = `${pickrColorFill}`;
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    var radius = Math.sqrt(
+      Math.pow(coord[0] - this.origX, 2) + Math.pow(coord[1] - this.origY, 2)
+    );
 
-  onMouseMove(coord, event) {}
+    const arcctg = (x) => {
+      return Math.PI / 2 - Math.atan(x);
+    };
+
+    if (coord[1] - this.origY >= 0) {
+      this.angle = arcctg((coord[0] - this.origX) / (coord[1] - this.origY));
+    } else {
+      this.angle =
+        Math.PI + arcctg((coord[0] - this.origX) / (coord[1] - this.origY));
+    }
+    this.contextDraft.beginPath();
+    this.contextDraft.moveTo(coord[0], coord[1]);
+    for (let i = 1; i < this.sides; i++) {
+      this.contextDraft.lineTo(
+        this.origX +
+          radius * Math.cos(this.angle + (i * 2 * Math.PI) / this.sides),
+        this.origY +
+          radius * Math.sin(this.angle + (i * 2 * Math.PI) / this.sides)
+      );
+    }
+    this.contextDraft.closePath();
+    this.contextDraft.stroke();
+  }
+
+  onMouseMove() {}
 
   onMouseUp(coord, event) {
-    if (resetDrawing == false) {
-      this.size = Math.sqrt(
-        (coord[0] - this.origX) ** 2 + (coord[1] - this.origY) ** 2
-      );
-      function arcctg(x) {
-        return Math.PI / 2 - Math.atan(x);
-      }
-      if (coord[1] - this.origY >= 0) {
-        this.theta = arcctg((coord[0] - this.origX) / (coord[1] - this.origY));
-      } else {
-        this.theta =
-          Math.PI + arcctg((coord[0] - this.origX) / (coord[1] - this.origY));
-      }
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    this.contextReal.lineWidth = 5;
+    this.contextReal.strokeStyle = `${pickrColorStroke}`;
+    this.contextReal.fillStyle = `${pickrColorFill}`;
+    var radius = Math.sqrt(
+      Math.pow(coord[0] - this.origX, 2) + Math.pow(coord[1] - this.origY, 2)
+    );
+    console.log(`Radius = ${radius}`);
 
-      this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-      this.contextReal.beginPath();
-      this.contextReal.moveTo(coord[0], coord[1]);
-      for (let i = 1; i <= this.sides; i++) {
-        this.contextReal.lineTo(
-          this.origX +
-            this.size * Math.cos(this.theta + (i * 2 * Math.PI) / this.sides),
-          this.origY +
-            this.size * Math.sin(this.theta + (i * 2 * Math.PI) / this.sides)
-        );
-      }
+    const arcctg = (x) => {
+      return Math.PI / 2 - Math.atan(x);
+    };
 
-      if (fillStyle) {
-        this.contextReal.fill();
-      } else {
-        this.contextReal.stroke();
-      }
-      saveState();
+    if (coord[1] - this.origY >= 0) {
+      this.angle = arcctg((coord[0] - this.origX) / (coord[1] - this.origY));
+    } else {
+      this.angle =
+        Math.PI + arcctg((coord[0] - this.origX) / (coord[1] - this.origY));
     }
+
+    this.contextReal.beginPath();
+    this.contextReal.moveTo(coord[0], coord[1]);
+    for (let i = 1; i < this.sides; i++) {
+      this.contextReal.lineTo(
+        this.origX +
+          radius * Math.cos(this.angle + (i * 2 * Math.PI) / this.sides),
+        this.origY +
+          radius * Math.sin(this.angle + (i * 2 * Math.PI) / this.sides)
+      );
+    }
+    this.contextReal.closePath();
+    this.contextReal.stroke();
+
+    historyArray.push(
+      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
+    );
+    historyIndex += 1;
+    console.log(`Current History Index : ${historyIndex}`);
   }
 
   onMouseLeave() {}
   onMouseEnter() {}
-
-  //   reset() {
-  //     this.click = 0;
-  //     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-  //   }
-
-  //   draw(x, y) {
-  //     this.contextReal.lineTo(x, y);
-  //     this.contextReal.moveTo(x, y);
-  //     this.contextReal.closePath();
-  //     this.contextReal.stroke();
-  //   }
 }
