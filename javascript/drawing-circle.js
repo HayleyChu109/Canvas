@@ -46,6 +46,12 @@ class DrawingCircle extends PaintFunction {
             Math.PI * 2,
         );
         this.contextReal.stroke();
+
+        historyArray.push(
+            this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
+          );
+          historyIndex += 1;
+          console.log(`Current History Index : ${historyIndex}`);
     }
 
     onMouseLeave() {}

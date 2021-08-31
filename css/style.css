@@ -1,18 +1,56 @@
+/* Global
+----------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Button Lists
+----------------------------------- */
+#first-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button-list {
+  margin-left: 20px;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.item img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Canvas
+----------------------------------- */
+#canvas-container {
+  height: 720px;
+  margin: 20px 0px 0px 20px;
+  padding: 0px;
+  justify-content: start;
+}
+
 .canvas {
-  border: 1px black dotted;
   position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  border: 3px solid #000;
 }
 
 #canvas-draft {
   background-color: transparent;
 }
-body {
-  overflow: hidden;
-}
-#canvas-container {
-  height: 720px;
-}
+
+/* Below bg color for checking transparent eraser */
+/* #canvas-real {
+  background-color: cornsilk;
+} */
