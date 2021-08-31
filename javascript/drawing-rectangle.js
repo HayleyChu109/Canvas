@@ -38,7 +38,6 @@ class DrawingRectangle extends PaintFunction {
   onMouseMove() {}
 
   onMouseUp(coord) {
-    this.contextDraft.lineWidth = 5;
     this.contextReal.lineWidth = 5;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     // this.contextReal.fillRect(
