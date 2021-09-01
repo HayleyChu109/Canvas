@@ -12,15 +12,16 @@
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <!-- Pickr CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <section id="first-container">
+  <section id="menuBar">
     <div>
       <!-- Button section -->
       <div class="button-list grid">
@@ -35,6 +36,10 @@
         <div class="item">
           <img src="logo/curved-line.png" alt="curve" id="drawing-curve">
         </div>
+        <!-- The drawing bezier curve button -->
+        <div class="item">
+          <img src="logo/bezier.png" alt="bezier curve" id="drawing-beziercurve">
+        </div>
         <!-- The drawing circle button -->
         <div class="item">
           <img src="logo/circle.png" alt="circle" id="drawing-circle">
@@ -42,10 +47,6 @@
         <!-- The drawing rectangle button -->
         <div class="item">
           <img src="logo/square.png" alt="square" id="drawing-rectangle">
-        </div>
-        <!-- The drawing bezier curve button -->
-        <div class="item">
-          <img src="logo/bezier.png" alt="bezier curve" id="drawing-beziercurve">
         </div>
         <!-- The drawing triangle button -->
         <div class="item">
@@ -78,53 +79,74 @@
         <div class="item">
           <img src="logo/redo.png" alt="redo" id="redo">
         </div>
-        <!-- Sherman: The empty button -->
         <div class="item">
-          <img src="logo/empty.png" alt="empty" id="empty">
+          <img src="logo/zoom-in.png" alt="zoom in" id="zoomIn">
+        </div>
+        <div class="item">
+          <img src="logo/zoom-out.png" alt="zoom out" id="zoomOut">
+        </div>
+        <div class="item">
+          <img src="logo/upload.png" alt="upload" id="upload">
         </div>
         <!-- Sherman: Save button -->
         <div class="item">
           <img src="logo/save.png" alt="save" id="save">
         </div>
+<<<<<<< HEAD
         <!-- Sherman: Upload button -->
         <div class="item">
           <img src="logo/save.png" alt="upload" id="upload">
+=======
+        <!-- Sherman: The empty button -->
+        <div class="item">
+          <img src="logo/empty.png" alt="empty" id="empty">
+>>>>>>> Hayley/Canvas
         </div>
       </div>
 
-      <div class="slidecontainer">
-        <label for="blur">Blur</label><br>
-        <input type="range" min="0" max="10" value="0" id="blur">
-      </div>
-      <div class="slidecontainer">
-        <label for="brightness">Brightness</label><br>
-        <input type="range" min="0" max="200" value="100" id="brightness">
-      </div>
-      <div class="slidecontainer">
-        <label for="contrast">Contrast</label><br>
-        <input type="range" min="0" max="100" value="0" id="contrast">
-      </div>
-      <div class="slidecontainer">
-        <label for="grayscale">Grayscale</label><br>
-        <input type="range" min="0" max="100" value="0" id="grayscale">
+      <!-- Sherman: pickr palette -->
+      <div id="pickr">
+        <div class="stroke">
+          <h4>Stroke:</h4>
+          <span id="pickr-palette-stroke"></span>
+        </div>
+        <div class="fill">
+          <h4>Fill:</h4>
+          <span id="pickr-palette-fill"></span>
+        </div>
       </div>
 
-      <div class="buttons">
-        <!-- Sherman: Undo button -->
-        <!-- <span class="btn btn-success fa fa-paint-brush" id="undo">Undo</span> -->
-        <!-- Sherman: Redo button -->
-        <!-- <span class="btn btn-success fa fa-paint-brush" id="redo">Redo</span> -->
-        <!-- Sherman: Filter-blur -->
-        <!-- <span class="btn btn-light fa fa-paint-brush" id="effect-blur">(BUG) Effect: Blur</span><br> -->
-        <!-- Sherman: Filter-drop-shadow -->
-        <!-- <span class="btn btn-light fa fa-paint-brush" id="effect-drop-shadow">(BUG) Effect: Drop Shadow</span><br> -->
-        <!-- Sherman: Paint Bucket -->
-        <!-- <span class="btn btn-dark fa fap-paint-brush" id="paintbucket">(BUG) Paint Bucket</span><br> -->
-        <!-- Sherman: pickr palette -->
-        <div>Stroke color</div>
-        <span id="pickr-palette-stroke"></span>
-        <div>Fill color</div>
-        <span id="pickr-palette-fill"></span>
+      <!-- Range slider -->
+      <div id="rangeslider">
+        <div id="rangecontainer">
+          <div class="slidecontainer">
+            <label for="font-size">Font size: <span id="font-size-number">12</span></label><br>
+            <input type="range" min="12" max="72" value="12" step="1" id="font-size">
+          </div>
+          <div class="slidecontainer">
+            <label for="stroke-weight">Stroke weight: <span id="stroke-weight-number">1</span></label><br>
+            <input type="range" min="1" max="40" value="1" step="1" id="stroke-weight">
+          </div>
+          <div class="slidecontainer">
+            <label for="polygonSide">Polygon sides: <span id="side-of-polygon">5</span></label><br>
+            <input type="range" min="5" max="10" value="5" id="polygonSide">
+          </div>
+        </div>
+
+        <div id="rangecontainer">
+          <div class="slidecontainer">
+            <label for="brightness">Brightness</label><br>
+            <input type="range" min="0" max="200" value="100" id="brightness">
+          </div>
+          <div class="slidecontainer">
+            <label for="contrast">Contrast</label><br>
+            <input type="range" min="0" max="200" value="100" id="contrast">
+          </div>
+          <div class="slidecontainer">
+            <label for="blur">Blur</label><br>
+            <input type="range" min="0" max="10" value="0" id="blur">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -150,8 +172,15 @@
 
   <!-- The drawing functionality  -->
   <script src="./javascript/canvas-common.js" type="text/javascript"></script>
+<<<<<<< HEAD
   <!-- Sherman: The undo-redo functionality -->
   <script src="javascript/undo-redo.js" type="text/javascript"></script>
+=======
+  <!-- The click functionality  -->
+  <script src="./javascript/click.js" type="text/javascript"></script>
+  <!-- The font & stroke styling functionality -->
+  <script src="javascript/font-stroke-styling.js" type="text/javascript"></script>
+>>>>>>> Hayley/Canvas
   <!-- The drawing line functionality  -->
   <script src="./javascript/drawing-line.js" type="text/javascript"></script>
   <!-- The drawing curve functionality  -->
@@ -176,6 +205,8 @@
   <script src="javascript/empty.js" type="text/javascript"></script>
   <!-- Sherman: The save functionality -->
   <script src="javascript/save.js" type="text/javascript"></script>
+  <!-- Sherman: The upload functionality -->
+  <script src="javascript/upload.js" type="text/javascript"></script>
   <!-- Sherman: The Effects functionality -->
   <script src="javascript/effects.js" type="text/javascript"></script>
   <!-- Sherman: The Paint Bucket functionality-->
@@ -185,6 +216,7 @@
   <!-- Sherman: The Upload functionality -->
   <script src="javascript/upload.js" type="text/javascript"></script>
 
+<<<<<<< HEAD
   <script type="text/javascript">
     $(() => {
       currentFunction = new DrawingLine(contextReal)
@@ -254,6 +286,8 @@
       })
     })
   </script>
+=======
+>>>>>>> Hayley/Canvas
 </body>
 
 </html>
