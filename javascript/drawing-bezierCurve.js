@@ -140,6 +140,7 @@ class DrawingBezierCurve extends PaintFunction {
       );
       this.contextReal.stroke();
       this.click = 0;
+      
       var imgReady = true;
       history(this.contextReal, `${imgReady}`);
     }
