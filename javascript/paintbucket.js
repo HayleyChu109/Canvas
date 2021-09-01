@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 class PaintBucket extends PaintFunction {
   constructor(contextReal) {
     super();
@@ -91,4 +89,3 @@ class PaintBucket extends PaintFunction {
     console.log(`Current History Index : ${historyIndex}`);
   }
 }
->>>>>>> Hayley/Canvas

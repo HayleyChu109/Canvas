@@ -92,15 +92,9 @@
         <div class="item">
           <img src="logo/save.png" alt="save" id="save">
         </div>
-<<<<<<< HEAD
-        <!-- Sherman: Upload button -->
-        <div class="item">
-          <img src="logo/save.png" alt="upload" id="upload">
-=======
         <!-- Sherman: The empty button -->
         <div class="item">
           <img src="logo/empty.png" alt="empty" id="empty">
->>>>>>> Hayley/Canvas
         </div>
       </div>
 
@@ -154,8 +148,8 @@
     <div id="canvas-container">
       <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
       <canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
-      <input type="text" id="inputText" name="inputBox" style="display: none"/>
-      <input type="file" id="inputImg" name="imageLoader" style="display: none" size="10"/>
+      <input type="text" id="inputText" name="inputBox" style="display: none" />
+      <input type="file" id="inputImg" name="imageLoader" style="display: none" size="10" />
     </div>
 
   </section>
@@ -172,15 +166,10 @@
 
   <!-- The drawing functionality  -->
   <script src="./javascript/canvas-common.js" type="text/javascript"></script>
-<<<<<<< HEAD
-  <!-- Sherman: The undo-redo functionality -->
-  <script src="javascript/undo-redo.js" type="text/javascript"></script>
-=======
   <!-- The click functionality  -->
   <script src="./javascript/click.js" type="text/javascript"></script>
   <!-- The font & stroke styling functionality -->
   <script src="javascript/font-stroke-styling.js" type="text/javascript"></script>
->>>>>>> Hayley/Canvas
   <!-- The drawing line functionality  -->
   <script src="./javascript/drawing-line.js" type="text/javascript"></script>
   <!-- The drawing curve functionality  -->
@@ -216,78 +205,6 @@
   <!-- Sherman: The Upload functionality -->
   <script src="javascript/upload.js" type="text/javascript"></script>
 
-<<<<<<< HEAD
-  <script type="text/javascript">
-    $(() => {
-      currentFunction = new DrawingLine(contextReal)
-      $("#drawing-line").click(() => {
-        currentFunction = new DrawingLine(contextReal);
-      });
-      $("#drawing-curve").click(() => {
-        currentFunction = new DrawingCurve(contextReal, contextDraft);
-      });
-      $("#drawing-beziercurve").click(() => {
-        currentFunction = new DrawingBezierCurve(contextReal, contextDraft);
-      });
-      $("#drawing-rectangle").click(() => {
-        currentFunction = new DrawingRectangle(contextReal, contextDraft);
-      });
-      $("#drawing-circle").click(() => {
-        currentFunction = new DrawingCircle(contextReal, contextDraft);
-      });
-      $("#drawing-triangle").click(() => {
-        currentFunction = new DrawingTriangle(contextReal, contextDraft);
-      });
-      $("#drawing-text").click(() => {
-        currentFunction = new DrawingText(contextReal, contextDraft);
-      });
-      $("#drawing-filter").click(() => {
-        filter();
-      });
-      //Sherman's eraser
-      $("#eraser-cir").click(() => {
-        currentFunction = new Eraser(contextReal);
-      });
-      //Sherman's empty
-      $("#empty").click(() => {
-        confirmEmpty();
-      })
-      //Sherman's undo
-      $("#undo").click(() => {
-        undo();
-      });
-      //Sherman's redo
-      $("#redo").click(() => {
-        redo();
-      })
-      //Sherman's save
-      $("#save").click(() => {
-        save();
-      })
-      //Sherman's Effect-Blur
-      $("#effect-blur").click(() => {
-        effectBlur();
-      })
-      //Sherman's Effect-Drop-Shadow
-      $("#effect-drop-shadow").click(() => {
-        effectDropShadow();
-      })
-      //Sherman's Paint Bucket
-      $("#paintbucket").click(() => {
-        currentFunction = new PaintBucket(contextReal);
-      })
-      //Sherman's Polygon
-      $("#drawing-polygon").click(() => {
-        currentFunction = new DrawingPolygon(contextReal, contextDraft);
-      })
-      //Sherman's Upload
-      $("#upload").click(() => {
-        upload();
-      })
-    })
-  </script>
-=======
->>>>>>> Hayley/Canvas
 </body>
 
 </html>
