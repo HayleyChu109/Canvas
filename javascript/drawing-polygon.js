@@ -8,7 +8,7 @@ class DrawingPolygon extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    this.contextReal.lineWidth = 5;
+    this.contextReal.lineWidth = `${strokeWeight}`;
     //Sher: Below added - draft fill style
     this.contextDraft.fillStyle = `${pickrColorFill}`;
     //Sher: Above added

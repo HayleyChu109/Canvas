@@ -19,7 +19,7 @@ class DrawingCircle extends PaintFunction {
   }
 
   onDragging(coord, event) {
-    this.contextDraft.lineWidth = 5;
+    this.contextDraft.lineWidth = `${strokeWeight}`;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
 
     let pointX = coord[0] - this.origX;
@@ -36,7 +36,7 @@ class DrawingCircle extends PaintFunction {
   onMouseMove() {}
 
   onMouseUp(coord) {
-    this.contextReal.lineWidth = 5;
+    this.contextReal.lineWidth = `${strokeWeight}`;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
 
     let pointX = coord[0] - this.origX;

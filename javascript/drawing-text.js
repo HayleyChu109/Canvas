@@ -22,15 +22,19 @@ class DrawingText extends PaintFunction {
         });
 
     $("#inputText").keydown((event) => {
+      if (coord[0] === this.origX) {
+        console.log("Inside",coord[0])
+        console.log("X",this.origX)
       if (event.key == "Enter") {
         let text = $("#inputText").val();
-        this.contextReal.fillText(text, this.origX, this.origY);
+        this.contextReal.fillText(text, coord[0], coord[1]);
         $("#inputText").css("display", "none");
         $("#inputText").val("");
 
         var imgReady = true;
         history(this.contextReal, `${imgReady}`);
       }
+    }
     });
   }
 
