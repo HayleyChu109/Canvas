@@ -8,6 +8,8 @@ class DrawingCircle extends PaintFunction {
     onMouseDown(coord, event) {
         this.contextDraft.strokeStyle = `${pickrColorStroke}`;
         this.contextReal.strokeStyle = `${pickrColorStroke}`;
+        this.contextDraft.lineWidth = `${strokeWeight}`;
+        this.contextReal.lineWidth = `${strokeWeight}`;
         this.origX = coord[0];
         this.origY = coord[1];
     }

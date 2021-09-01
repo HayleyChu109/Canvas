@@ -5,27 +5,39 @@ class PaintBucket extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    var pixelStack = [[coord[0], coord[1]]];
-    var colorLayerData = context.getImageData(
-      0,
-      0,
-      canvasReal.width,
-      canvasReal.height
-    );
-    console.log(`pixelStack = ${pixelStack}`);
-    while (pixelStack.length) {
-      var newPos = pixelStack.pop();
-      var x = newPos[0];
-      var y = newPos[1];
-      var pixelPos = (y * canvasReal.width + x) * 4;
+    let pixelStack = [[coord[0],coord[1]]];
+    console.log(pixelStack);
+    
+    let imgData = this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height);
+    console.log(imgData);
+
+    function imagesdata(coord) {
+      let color = contextReal.getImageData(coord[0], coord[1], 1, 1).data;
+      return [color[0], color[1], color[2]];
+    }
+    let currentColor = imagesdata(coord);
+    console.log("Current", currentColor);
+
+    let c = `${pickrColorFill}`;
+    let rgba = c.match(/\d+\.?\d*/g);
+    console.log("RGBA",rgba);
+
+    while(pixelStack.length) {
+
+      let newPos = pixelStack.pop();
+      let x = newPos[0];
+      let y = newPos[1];
+      let pixelPos = (y * canvasReal.width + x) * 4;
+
       while (y-- >= 0 && matchStartColor(pixelPos)) {
         pixelPos -= canvasReal.width * 4;
       }
       pixelPos += canvasReal.width * 4;
       y++;
-      reachLeft = false;
-      reachRight = false;
-      while (y++ < canvasReal.height - 1 && matchStartColor(pixelPos)) {
+      let reachLeft = false;
+      let reachRight = false;
+
+      while (y++ < canvasReal.height-1 && matchStartColor(pixelPos)) {
         colorPixel(pixelPos);
         if (x > 0) {
           if (matchStartColor(pixelPos - 4)) {
@@ -50,31 +62,30 @@ class PaintBucket extends PaintFunction {
         pixelPos += canvasReal.width * 4;
       }
     }
-    context.putImageData(contextReal, 0, 0);
+    this.contextReal.putImageData(imgData, 0, 0)
+
     function matchStartColor(pixelPos) {
-      var r = colorLayerData.data[pixelPos];
-      var g = colorLayerData.data[pixelPos + 1];
-      var b = colorLayerData.data[pixelPos + 2];
-      return r == startR && g == startG && b == startB;
+      let r = imgData.data[pixelPos];	
+      let g = imgData.data[pixelPos+1];	
+      let b = imgData.data[pixelPos+2];
+  
+      if (r == currentColor[0] && g == currentColor[1] && b == currentColor[2]) {
+        return true;
+      }
     }
+
     function colorPixel(pixelPos) {
-      colorLayerData.data[pixelPos] = `${pickrColorFill}`.eq(0);
-      colorLayerData.data[pixelPos + 1] = `${pickrColorFill}`.eq(1);
-      colorLayerData.data[pixelPos + 2] = `${pickrColorFill}`.eq(2);
-      colorLayerData.data[pixelPos + 3] = `${pickrColorFill}`.eq(3);
-    }
+      imgData.data[pixelPos] = parseInt(rgba[0]);
+      imgData.data[pixelPos + 1] = parseInt(rgba[1]);
+      imgData.data[pixelPos + 2] = parseInt(rgba[2]);
+      imgData.data[pixelPos + 3] = parseInt(rgba[3]*255);
+    };
   }
-
-  onMouseUp() {
-    // historyArray.push(
-    //   this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
-    // );
-    // historyIndex += 1;
-    // console.log(`Current History Index : ${historyIndex}`);
+  onMouseUp(coord) {
+    historyArray.push(
+      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
+    );
+    historyIndex += 1;
+    console.log(`Current History Index : ${historyIndex}`);
   }
-
-  onDragging() {}
-  onMouseMove() {}
-  onMouseLeave() {}
-  onMouseEnter() {}
 }

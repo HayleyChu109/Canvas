@@ -22,7 +22,7 @@ class DrawingLine extends PaintFunction {
     // Kind of line
     this.contextReal.lineJoin = "round";
     // Width of line
-    this.contextReal.lineWidth = 15;
+    this.contextReal.lineWidth = `${strokeWeight}`;
     // Drawing the line here
     this.contextReal.beginPath();
     // this.context.moveTo(coord[0], coord[1]);
@@ -40,7 +40,7 @@ class DrawingLine extends PaintFunction {
       this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
     );
     historyIndex += 1;
-    console.log(`Current History Index : ${historyIndex}`);
+    // console.log(`Current History Index : ${historyIndex}`);
   }
 
   onMouseLeave() {}

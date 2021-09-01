@@ -3,21 +3,20 @@ class DrawingPolygon extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.sides = 6;
+    this.sides = `${sideOfPolygon}`;
   }
 
   onMouseDown(coord, event) {
-    this.contextReal.lineWidth = 5;
     this.contextReal.fillStyle = `${pickrColorFill}`;
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.contextReal.lineJoin = "miter";
+    this.contextReal.lineWidth = `${strokeWeight}`;
     this.origX = coord[0];
     this.origY = coord[1];
-    console.log(this.origX, this.origY);
   }
 
   onDragging(coord, event) {
-    this.contextDraft.lineWidth = 5;
+    this.contextDraft.lineWidth = `${strokeWeight}`;
     this.contextDraft.strokeStyle = `${pickrColorStroke}`;
     this.contextDraft.fillStyle = `${pickrColorFill}`;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
@@ -53,7 +52,7 @@ class DrawingPolygon extends PaintFunction {
 
   onMouseUp(coord, event) {
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    this.contextReal.lineWidth = 5;
+    this.contextReal.lineWidth = `${strokeWeight}`;
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.contextReal.fillStyle = `${pickrColorFill}`;
     var radius = Math.sqrt(
