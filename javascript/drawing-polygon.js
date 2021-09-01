@@ -3,17 +3,20 @@ class DrawingPolygon extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.sides = 6;
+    this.sides = 8;
+    var imgReady = false;
   }
 
   onMouseDown(coord, event) {
     this.contextReal.lineWidth = 5;
+    //Sher: Below added - draft fill style
+    this.contextDraft.fillStyle = `${pickrColorFill}`;
+    //Sher: Above added
     this.contextReal.fillStyle = `${pickrColorFill}`;
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.contextReal.lineJoin = "miter";
     this.origX = coord[0];
     this.origY = coord[1];
-    console.log(this.origX, this.origY);
   }
 
   onDragging(coord, event) {
@@ -46,6 +49,9 @@ class DrawingPolygon extends PaintFunction {
       );
     }
     this.contextDraft.closePath();
+    //Sher: Below added fill
+    this.contextDraft.fill();
+    //Sher: Above added
     this.contextDraft.stroke();
   }
 
@@ -59,7 +65,6 @@ class DrawingPolygon extends PaintFunction {
     var radius = Math.sqrt(
       Math.pow(coord[0] - this.origX, 2) + Math.pow(coord[1] - this.origY, 2)
     );
-    console.log(`Radius = ${radius}`);
 
     const arcctg = (x) => {
       return Math.PI / 2 - Math.atan(x);
@@ -83,13 +88,13 @@ class DrawingPolygon extends PaintFunction {
       );
     }
     this.contextReal.closePath();
+    //Sher: Below added fill
+    this.contextReal.fill();
+    //Sher: Above added
     this.contextReal.stroke();
 
-    historyArray.push(
-      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
-    );
-    historyIndex += 1;
-    console.log(`Current History Index : ${historyIndex}`);
+    var imgReady = true;
+    history(this.contextReal, `${imgReady}`);
   }
 
   onMouseLeave() {}

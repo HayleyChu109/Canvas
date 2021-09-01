@@ -1,3 +1,10 @@
+class History extends PaintFunction {
+  constructor(contextReal) {
+    super();
+    this.contextReal = contextReal;
+  }
+}
+
 globalThis.historyArray = [];
 globalThis.historyIndex = -1;
 
@@ -55,5 +62,17 @@ const redo = () => {
     console.log(`Current Redo Index: ${redoIndex}`);
   } else {
     console.log(`ERROR in redo, Index# ${redoIndex}`);
+  }
+};
+
+const history = (context, imgReady) => {
+  if ((imgReady = true)) {
+    historyArray.push(
+      context.getImageData(0, 0, canvasReal.width, canvasReal.height)
+    );
+    historyIndex += 1;
+    console.log(`Current History Index : ${historyIndex}`);
+  } else {
+    return;
   }
 };
