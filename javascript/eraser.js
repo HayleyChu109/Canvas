@@ -2,6 +2,7 @@ class Eraser extends PaintFunction {
   constructor(contextReal) {
     super();
     this.contextReal = contextReal;
+    var imgReady = false;
   }
 
   onMouseDown(coord, event) {
@@ -21,11 +22,8 @@ class Eraser extends PaintFunction {
 
   onMouseUp(coord, event) {
     this.contextReal.globalCompositeOperation = "source-over";
-    historyArray.push(
-      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
-    );
-    historyIndex += 1;
-    console.log(`Current History Index : ${historyIndex}`);
+    var imgReady = true;
+    history(this.contextReal, `${imgReady}`);
   }
 
   onMouseLeave() {}

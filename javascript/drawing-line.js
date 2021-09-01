@@ -11,6 +11,7 @@ class DrawingLine extends PaintFunction {
   constructor(contextReal) {
     super();
     this.contextReal = contextReal;
+    var imgReady = false;
   }
 
   // On mouse down, ensure that the pen has these features
@@ -36,11 +37,8 @@ class DrawingLine extends PaintFunction {
   onMouseMove() {}
 
   onMouseUp() {
-    historyArray.push(
-      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
-    );
-    historyIndex += 1;
-    console.log(`Current History Index : ${historyIndex}`);
+    var imgReady = true;
+    history(this.contextReal, `${imgReady}`);
   }
 
   onMouseLeave() {}

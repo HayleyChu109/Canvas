@@ -55,7 +55,7 @@ pickrStroke.on("save", (color, instance) => {
 // *** Below is pickr for fill color *** //
 const pickrFill = Pickr.create({
   el: "#pickr-palette-fill",
-  default: "rgba(236, 191, 104, 0.45)",
+  default: "rgba(255, 255, 255, 0)",
   theme: "nano",
   lockOpacity: false,
   comparison: true,
@@ -97,7 +97,7 @@ const pickrFill = Pickr.create({
 });
 
 pickrFill.on("init", (color, instance) => {
-  globalThis.pickrColorFill = "rgba(236, 191, 104, 0.45)";
+  globalThis.pickrColorFill = "rgba(255, 255, 255, 0)";
 });
 
 pickrFill.on("save", (color, instance) => {

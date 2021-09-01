@@ -3,14 +3,15 @@ class DrawingRectangle extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
+    var imgReady = false;
   }
 
   onMouseDown(coord, event) {
     this.contextReal.lineWidth = 5;
     this.contextReal.lineJoin = "miter";
-    // this.contextReal.fillStyle = `${pickrColorFill}`;
-    // this.origX = coord[0];
-    // this.origY = coord[1];
+    this.contextReal.fillStyle = `${pickrColorFill}`;
+    this.origX = coord[0];
+    this.origY = coord[1];
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.origX = coord[0];
     this.origY = coord[1];
@@ -20,12 +21,12 @@ class DrawingRectangle extends PaintFunction {
     this.contextDraft.lineWidth = 5;
     this.contextDraft.fillStyle = `${pickrColorFill}`;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    // this.contextDraft.fillRect(
-    //   this.origX,
-    //   this.origY,
-    //   coord[0] - this.origX,
-    //   coord[1] - this.origY
-    // );
+    this.contextDraft.fillRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    );
     this.contextDraft.strokeStyle = `${pickrColorStroke}`;
     this.contextDraft.strokeRect(
       this.origX,
@@ -40,12 +41,12 @@ class DrawingRectangle extends PaintFunction {
   onMouseUp(coord) {
     this.contextReal.lineWidth = 5;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    // this.contextReal.fillRect(
-    //   this.origX,
-    //   this.origY,
-    //   coord[0] - this.origX,
-    //   coord[1] - this.origY
-    // );
+    this.contextReal.fillRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    );
 
     this.contextReal.strokeRect(
       this.origX,
@@ -54,11 +55,8 @@ class DrawingRectangle extends PaintFunction {
       coord[1] - this.origY
     );
 
-    historyArray.push(
-      this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height)
-    );
-    historyIndex += 1;
-    console.log(`Current History Index : ${historyIndex}`);
+    var imgReady = true;
+    history(this.contextReal, `${imgReady}`);
   }
 
   onMouseLeave() {}
