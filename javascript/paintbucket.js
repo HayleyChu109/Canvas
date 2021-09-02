@@ -5,10 +5,15 @@ class PaintBucket extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    let pixelStack = [[coord[0],coord[1]]];
+    let pixelStack = [[coord[0], coord[1]]];
     console.log(pixelStack);
-    
-    let imgData = this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height);
+
+    let imgData = this.contextReal.getImageData(
+      0,
+      0,
+      canvasReal.width,
+      canvasReal.height
+    );
     console.log(imgData);
 
     function imagesdata(coord) {
@@ -20,10 +25,9 @@ class PaintBucket extends PaintFunction {
 
     let c = `${pickrColorFill}`;
     let rgba = c.match(/\d+\.?\d*/g);
-    console.log("RGBA",rgba);
+    console.log("RGBA", rgba);
 
-    while(pixelStack.length) {
-
+    while (pixelStack.length) {
       let newPos = pixelStack.pop();
       let x = newPos[0];
       let y = newPos[1];
@@ -37,7 +41,7 @@ class PaintBucket extends PaintFunction {
       let reachLeft = false;
       let reachRight = false;
 
-      while (y++ < canvasReal.height-1 && matchStartColor(pixelPos)) {
+      while (y++ < canvasReal.height - 1 && matchStartColor(pixelPos)) {
         colorPixel(pixelPos);
         if (x > 0) {
           if (matchStartColor(pixelPos - 4)) {
@@ -62,14 +66,18 @@ class PaintBucket extends PaintFunction {
         pixelPos += canvasReal.width * 4;
       }
     }
-    this.contextReal.putImageData(imgData, 0, 0)
+    this.contextReal.putImageData(imgData, 0, 0);
 
     function matchStartColor(pixelPos) {
-      let r = imgData.data[pixelPos];	
-      let g = imgData.data[pixelPos+1];	
-      let b = imgData.data[pixelPos+2];
-  
-      if (r == currentColor[0] && g == currentColor[1] && b == currentColor[2]) {
+      let r = imgData.data[pixelPos];
+      let g = imgData.data[pixelPos + 1];
+      let b = imgData.data[pixelPos + 2];
+
+      if (
+        r == currentColor[0] &&
+        g == currentColor[1] &&
+        b == currentColor[2]
+      ) {
         return true;
       }
     }
@@ -78,11 +86,11 @@ class PaintBucket extends PaintFunction {
       imgData.data[pixelPos] = parseInt(rgba[0]);
       imgData.data[pixelPos + 1] = parseInt(rgba[1]);
       imgData.data[pixelPos + 2] = parseInt(rgba[2]);
-      imgData.data[pixelPos + 3] = parseInt(rgba[3]*255);
-    };
+      imgData.data[pixelPos + 3] = parseInt(rgba[3] * 255);
+    }
   }
   onMouseUp(coord) {
     var imgReady = true;
-    history(this.contextReal, `${imgReady}`);
+    history(this.contextReal, imgReady);
   }
 }

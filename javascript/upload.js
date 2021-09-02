@@ -2,6 +2,7 @@ var imageLoader = document.getElementById("inputImg");
 imageLoader.addEventListener("change", upload, false);
 var canvas = document.getElementById("canvas-real");
 var ctx = canvas.getContext("2d");
+var imgReady = false;
 
 function upload(e) {
   var reader = new FileReader();
@@ -21,6 +22,10 @@ function upload(e) {
     img.src = event.target.result;
   };
   reader.readAsDataURL(e.target.files[0]);
+
+  imgReady = true;
+  history(this.contextReal, imgReady);
+  imgReady = false;
 }
 
 $("#upload").click(() => {

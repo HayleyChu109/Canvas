@@ -66,7 +66,7 @@ const redo = () => {
 };
 
 const history = (context, imgReady) => {
-  if ((imgReady = true)) {
+  if (imgReady === true) {
     historyArray.push(
       context.getImageData(0, 0, canvasReal.width, canvasReal.height)
     );

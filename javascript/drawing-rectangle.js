@@ -8,10 +8,8 @@ class DrawingRectangle extends PaintFunction {
 
   onMouseDown(coord, event) {
     this.contextReal.lineWidth = `${strokeWeight}`;
-    this.contextReal.lineJoin = "miter";
+    this.contextReal.lineJoin = "round";
     this.contextReal.fillStyle = `${pickrColorFill}`;
-    this.origX = coord[0];
-    this.origY = coord[1];
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.origX = coord[0];
     this.origY = coord[1];
@@ -20,6 +18,7 @@ class DrawingRectangle extends PaintFunction {
   onDragging(coord, event) {
     this.contextDraft.lineWidth = `${strokeWeight}`;
     this.contextDraft.fillStyle = `${pickrColorFill}`;
+    this.contextDraft.lineJoin = "round";
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextDraft.fillRect(
       this.origX,
@@ -34,6 +33,7 @@ class DrawingRectangle extends PaintFunction {
       coord[0] - this.origX,
       coord[1] - this.origY
     );
+    imgReady = true;
   }
 
   onMouseMove() {}
@@ -55,8 +55,8 @@ class DrawingRectangle extends PaintFunction {
       coord[1] - this.origY
     );
 
-    var imgReady = true;
-    history(this.contextReal, `${imgReady}`);
+    history(this.contextReal, imgReady);
+    imgReady = false;
   }
 
   onMouseLeave() {}
