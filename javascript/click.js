@@ -19,7 +19,7 @@ $(() => {
       currentFunction = new DrawingTriangle(contextReal, contextDraft);
     });
     $("#drawing-text").click(() => {
-      currentFunction = new DrawingText(contextReal);
+      currentFunction = new DrawingText(contextReal, contextDraft);
     });
     $("#drawing-filter").click(() => {
       filter();
