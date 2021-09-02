@@ -7,14 +7,16 @@ class DrawingBezierCurve extends PaintFunction {
     var imgReady = false;
   }
 
-  onMouseDown(coord, event) {
-    if (this.click == 0) {
-      this.contextDraft.strokeStyle = `${pickrColorStroke}`;
-      this.contextDraft.lineJoin = "round";
-      this.contextDraft.lineWidth = 5;
-      this.contextReal.strokeStyle = `${pickrColorStroke}`;
-      this.contextReal.lineJoin = "round";
-      this.contextReal.lineWidth = 5;
+    onMouseDown(coord, event) {
+      if (this.click == 0) {
+        this.contextDraft.strokeStyle = `${pickrColorStroke}`;
+        this.contextDraft.lineJoin = "round";
+        this.contextDraft.lineCap = "round";
+        this.contextDraft.lineWidth = `${strokeWeight}`;
+        this.contextReal.strokeStyle = `${pickrColorStroke}`;
+        this.contextReal.lineJoin = "round";
+        this.contextReal.lineCap = "round";
+        this.contextReal.lineWidth = `${strokeWeight}`;
 
       this.origX = coord[0];
       this.origY = coord[1];
@@ -138,6 +140,7 @@ class DrawingBezierCurve extends PaintFunction {
       );
       this.contextReal.stroke();
       this.click = 0;
+      
       var imgReady = true;
       history(this.contextReal, `${imgReady}`);
     }

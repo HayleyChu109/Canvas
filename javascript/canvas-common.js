@@ -46,11 +46,6 @@ $("#canvas-draft").mouseenter(function (e) {
   currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
-$("#inputText").keyup(function (e) {
-  currentFunction.onKeyUp(e);
-  console.log("Cap1 (Canvas-common)");
-});
-
 /** # Class (all classes will have these methods) #
 /*  ====================== */
 class PaintFunction {
@@ -61,5 +56,4 @@ class PaintFunction {
   onMouseUp() {}
   onMouseLeave() {}
   onMouseEnter() {}
-  onKeyUp() {}
 }
