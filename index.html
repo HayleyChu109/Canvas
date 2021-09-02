@@ -87,8 +87,12 @@
           <img src="logo/save.png" alt="save" id="save">
         </div>
         <!-- Sherman: Upload button -->
-        <div class="item">
+        <div class="item btn-success">
           <img src="logo/save.png" alt="upload" id="upload">
+        </div>
+        <!-- Sherman: Drag n Drop button -->
+        <div class="item btn-info">
+          <img src="logo/save.png" alt="dragndrop" id="dragndrop">
         </div>
       </div>
 
@@ -184,6 +188,8 @@
   <script src="javascript/drawing-polygon.js" type="text/javascript"></script>
   <!-- Sherman: The Upload functionality -->
   <script src="javascript/upload.js" type="text/javascript"></script>
+  <!-- Sherman: The drag n drop functionality -->
+  <script src="javascript/dragndrop.js" type="text/javascript"></script>
 
   <script type="text/javascript">
     $(() => {
@@ -251,6 +257,10 @@
       //Sherman's Upload
       $("#upload").click(() => {
         upload();
+      })
+      //Sherman's drag n drop
+      $("#dragndrop").click(() => {
+        currentFunction = new DragNDrop(contextReal, contextDraft);
       })
     })
   </script>

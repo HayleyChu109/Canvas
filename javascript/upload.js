@@ -10,9 +10,6 @@ function upload(e) {
     img.onload = function () {
       img.width = canvas.width;
       img.height = canvas.height;
-
-      //   canvas.width = img.width;
-      //   canvas.height = img.height;
       ctx.drawImage(
         img,
         0,
