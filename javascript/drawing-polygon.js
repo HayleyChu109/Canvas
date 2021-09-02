@@ -12,7 +12,8 @@ class DrawingPolygon extends PaintFunction {
     this.contextDraft.fillStyle = `${pickrColorFill}`;
     this.contextReal.fillStyle = `${pickrColorFill}`;
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
-    this.contextReal.lineJoin = "miter";
+    this.contextReal.lineJoin = "round";
+    this.contextDraft.lineJoin = "round";
     this.contextReal.lineWidth = `${strokeWeight}`;
     this.origX = coord[0];
     this.origY = coord[1];
