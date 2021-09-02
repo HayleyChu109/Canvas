@@ -58,4 +58,7 @@ $(() => {
   $("#drawing-straightline").click(() => {
     currentFunction = new DrawingStraightLine(contextReal, contextDraft);
   });
+  $("#dragndrop").click(() => {
+    currentFunction = new DragNDrop(contextReal, contextDraft);
+  });
 });
