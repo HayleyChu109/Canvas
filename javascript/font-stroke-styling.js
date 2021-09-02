@@ -20,4 +20,5 @@ let sideOfPolygon = 5;
 $("#polygonSide").change(function () {
   sideOfPolygon = $("#polygonSide").val();
   $("#side-of-polygon").html(sideOfPolygon);
+  $("#drawing-polygon").click();
 });
