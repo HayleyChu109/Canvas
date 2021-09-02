@@ -46,8 +46,12 @@ h1 {
   transform: scale(1.1);
 }
 
-.item:active {
+/* .item:active {
   background-color: rgb(248, 240, 163);
+} */
+
+.item-active {
+  background-color: rgb(194, 248, 163) !important;
 }
 
 /* Pickr
@@ -88,7 +92,8 @@ h1 {
   width: 152px;
   margin-top: 10px;
   margin-left: 10px;
-  height: 30vh;
+  /* height: 30vh; */
+  height: 227px;
   text-align: center;
 }
 

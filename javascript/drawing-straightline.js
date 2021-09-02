@@ -16,6 +16,7 @@ class DrawingStraightLine extends PaintFunction {
   onMouseDown(coord, e) {
     this.contextReal.strokeStyle = `${pickrColorStroke}`; // Fill in the color
     this.contextReal.lineJoin = "round"; // Kind of line
+    this.contextReal.lineCap = "round"; //Sher: added cap of line 2/Sep
     this.contextReal.lineWidth = `${strokeWeight}`; // Width of line
     // this.contextReal.beginPath(); // Drawing the line here
     // this.contextReal.moveTo(coord[0], coord[1]);
@@ -31,25 +32,28 @@ class DrawingStraightLine extends PaintFunction {
     // draw(coord[0], coord[1], this.contextDraft);
     this.contextDraft.strokeStyle = `${pickrColorStroke}`;
     this.contextDraft.lineJoin = "round";
+    this.contextDraft.lineCap = "round";
     this.contextDraft.lineWidth = `${strokeWeight}`;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextDraft.beginPath();
     this.contextDraft.moveTo(this.origX, this.origY); //must assign into ( this.origX, this.origY
     this.contextDraft.lineTo(coord[0], coord[1]); // Not  x,y
     this.contextDraft.stroke();
+    imgReady = true;
   }
 
   onMouseUp(coord, e) {
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.strokeStyle = `${pickrColorStroke}`; // Fill in the color
     this.contextReal.lineJoin = "round"; // Kind of line
+    this.contextReal.lineCap = "round";
     this.contextReal.lineWidth = `${strokeWeight}`; // Width of line
     this.contextReal.beginPath(); // Drawing the line here
     this.contextReal.moveTo(this.origX, this.origY); //wrong coord[0], coord[1]
     this.draw(coord[0], coord[1]);
 
-    var imgReady = true;
-    history(this.contextReal, `${imgReady}`);
+    history(this.contextReal, imgReady);
+    imgReady = false;
   }
   onMouseLeave() {} //no need for stright line &line
   onMouseEnter() {} //no need for stright line &line

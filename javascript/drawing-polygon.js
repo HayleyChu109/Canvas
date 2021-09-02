@@ -9,9 +9,7 @@ class DrawingPolygon extends PaintFunction {
 
   onMouseDown(coord, event) {
     this.contextReal.lineWidth = `${strokeWeight}`;
-    //Sher: Below added - draft fill style
     this.contextDraft.fillStyle = `${pickrColorFill}`;
-    //Sher: Above added
     this.contextReal.fillStyle = `${pickrColorFill}`;
     this.contextReal.strokeStyle = `${pickrColorStroke}`;
     this.contextReal.lineJoin = "miter";
@@ -50,10 +48,9 @@ class DrawingPolygon extends PaintFunction {
       );
     }
     this.contextDraft.closePath();
-    //Sher: Below added fill
     this.contextDraft.fill();
-    //Sher: Above added
     this.contextDraft.stroke();
+    imgReady = true;
   }
 
   onMouseMove() {}
@@ -89,13 +86,11 @@ class DrawingPolygon extends PaintFunction {
       );
     }
     this.contextReal.closePath();
-    //Sher: Below added fill
     this.contextReal.fill();
-    //Sher: Above added
     this.contextReal.stroke();
 
-    var imgReady = true;
-    history(this.contextReal, `${imgReady}`);
+    history(this.contextReal, imgReady);
+    imgReady = false;
   }
 
   onMouseLeave() {}

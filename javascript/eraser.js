@@ -16,21 +16,22 @@ class Eraser extends PaintFunction {
 
   onDragging(coord, event) {
     this.draw(coord[0], coord[1]);
+    imgReady = true;
   }
 
   onMouseMove() {}
 
   onMouseUp(coord, event) {
     this.contextReal.globalCompositeOperation = "source-over";
-    var imgReady = true;
-    history(this.contextReal, `${imgReady}`);
+    history(this.contextReal, imgReady);
+    imgReady = false;
   }
 
   onMouseLeave() {}
   onMouseEnter() {}
 
   draw(x, y) {
-    this.contextReal.lineWidth = 20;
+    this.contextReal.lineWidth = `${strokeWeight}`;
     this.contextReal.lineTo(x, y);
     this.contextReal.stroke();
   }

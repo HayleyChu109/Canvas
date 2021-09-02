@@ -161,8 +161,9 @@ class DragNDrop extends PaintFunction {
       firstMove === false &&
       done === true
     ) {
-      var imgReady = true;
-      history(this.contextReal, `${imgReady}`);
+      imgReady = true;
+      history(this.contextReal, imgReady);
+      imgReady = false;
     }
   }
 

@@ -22,87 +22,87 @@
 
 <body>
   <section id="menuBar">
-    <div>
+    <div class="tool-panel">
       <!-- Button section -->
       <div class="button-list grid">
         <!-- The drawing line button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/line.png" alt="line" id="drawing-line">
         </div>
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/diagonal-line.png" alt="straight line" id='drawing-straightline'  >
         </div>
         <!-- The drawing curve button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/curved-line.png" alt="curve" id="drawing-curve">
         </div>
         <!-- The drawing bezier curve button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/bezier.png" alt="bezier curve" id="drawing-beziercurve">
         </div>
         <!-- The drawing circle button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/circle.png" alt="circle" id="drawing-circle">
         </div>
         <!-- The drawing rectangle button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/square.png" alt="square" id="drawing-rectangle">
         </div>
         <!-- The drawing triangle button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/triangle.png" alt="triangle" id="drawing-triangle">
         </div>
-        <!-- Sherman: Drawing Polygon -->
-        <div class="item">
+        <!-- Drawing Polygon -->
+        <div class="item item-tool">
           <img src="logo/polygon.png" alt="polygon" id="drawing-polygon">
         </div>
         <!-- The drawing text button -->
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/text.png" alt="text" id="drawing-text">
         </div>
-        <div class="item">
+        <div class="item item-tool">
           <img src="logo/fillcolor.png" alt="fill color" id="paintbucket">
         </div>
         <!-- The drawing filter button -->
-        <div class="item">
+        <div class="item item-filter">
           <img src="logo/filter.png" alt="filter" id="drawing-filter">
         </div>
-        <!-- Sherman: The eraser circle button -->
-        <div class="item">
+        <!-- The eraser button -->
+        <div class="item item-tool">
           <img src="logo/eraser.png" alt="eraser" id="eraser-cir">
         </div>
-        <!-- Sherman: Undo button -->
-        <div class="item">
+        <!-- Undo button -->
+        <div class="item item-utility">
           <img src="logo/undo.png" alt="undo" id="undo">
         </div>
-        <!-- Sherman: Redo button -->
-        <div class="item">
+        <!-- Redo button -->
+        <div class="item item-utility">
           <img src="logo/redo.png" alt="redo" id="redo">
         </div>
-        <div class="item">
+        <div class="item item-utility">
           <img src="logo/zoom-in.png" alt="zoom in" id="zoomIn">
         </div>
-        <div class="item">
+        <div class="item item-utility">
           <img src="logo/zoom-out.png" alt="zoom out" id="zoomOut">
         </div>
-        <div class="item">
+        <div class="item item-utility">
           <img src="logo/upload.png" alt="upload" id="upload">
         </div>
-        <!-- Sherman: Save button -->
-        <div class="item">
+        <!-- Save button -->
+        <div class="item item-utility">
           <img src="logo/save.png" alt="save" id="save">
         </div>
-        <!-- Sherman: Drag n Drop button -->
-        <div class="item">
+        <!-- Drag n Drop button -->
+        <div class="item item-tool">
           <img src="logo/dragndrop.png" alt="dragndrop" id="dragndrop">
         </div>
-        <!-- Sherman: The empty button -->
-        <div class="item">
+        <!-- The empty button -->
+        <div class="item item-utility">
           <img src="logo/empty.png" alt="empty" id="empty">
         </div>
       </div>
 
-      <!-- Sherman: pickr palette -->
+      <!-- Pickr palette -->
       <div id="pickr">
         <div class="stroke">
           <h4>Stroke:</h4>
@@ -118,12 +118,12 @@
       <div id="rangeslider">
         <div id="rangecontainer">
           <div class="slidecontainer">
-            <label for="font-size">Font size: <span id="font-size-number">12</span></label><br>
-            <input type="range" min="12" max="72" value="12" step="1" id="font-size">
+            <label for="font-size">Font size: <span id="font-size-number">28</span></label><br>
+            <input type="range" min="12" max="72" value="28" step="1" id="font-size">
           </div>
           <div class="slidecontainer">
-            <label for="stroke-weight">Stroke weight: <span id="stroke-weight-number">1</span></label><br>
-            <input type="range" min="1" max="40" value="1" step="1" id="stroke-weight">
+            <label for="stroke-weight">Stroke weight: <span id="stroke-weight-number">10</span></label><br>
+            <input type="range" min="1" max="40" value="10" step="1" id="stroke-weight">
           </div>
           <div class="slidecontainer">
             <label for="polygonSide">Polygon sides: <span id="side-of-polygon">5</span></label><br>
@@ -167,6 +167,8 @@
     crossorigin="anonymous"></script>
   <!-- Pickr Palette CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+  <!-- The Custom UI Styling Script -->
+  <script src="javascript/stylingscript.js" type="text/javascript"></script>
 
   <!-- The drawing functionality  -->
   <script src="./javascript/canvas-common.js" type="text/javascript"></script>
@@ -192,25 +194,23 @@
   <script src="./javascript/drawing-text.js" type="text/javascript"></script>
   <!-- The drawing filter functionality  -->
   <script src="./javascript/drawing-filter.js" type="text/javascript"></script>
-  <!-- Sherman: Palette functionality -->
+  <!-- The Palette functionality -->
   <script src="javascript/palette.js" type="text/javascript"></script>
-  <!-- Sherman: The eraser.cir functionality -->
+  <!-- The eraser functionality -->
   <script src="./javascript/eraser.js" type="text/javascript"></script>
-  <!-- Sherman: The empty functionality -->
+  <!-- The empty functionality -->
   <script src="javascript/empty.js" type="text/javascript"></script>
-  <!-- Sherman: The save functionality -->
+  <!-- The save functionality -->
   <script src="javascript/save.js" type="text/javascript"></script>
-  <!-- Sherman: The upload functionality -->
+  <!-- The upload functionality -->
   <script src="javascript/upload.js" type="text/javascript"></script>
-  <!-- Sherman: The Effects functionality -->
-  <script src="javascript/effects.js" type="text/javascript"></script>
-  <!-- Sherman: The Paint Bucket functionality-->
+  <!-- The Paint Bucket functionality-->
   <script src="javascript/paintbucket.js" type="text/javascript"></script>
-  <!-- Sherman: The Polygon functionality -->
+  <!-- The Polygon functionality -->
   <script src="javascript/drawing-polygon.js" type="text/javascript"></script>
   <!-- The drawing straight functionality  -->
   <script src="./javascript/drawing-straightline.js" type="text/javascript"></script>
-  <!-- Sherman: The Drag N Drop functionality -->
+  <!-- The Drag N Drop functionality -->
   <script src="javascript/dragndrop.js" type="text/javascript"></script>
 
 </body>
