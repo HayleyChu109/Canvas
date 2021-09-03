@@ -1,54 +1,54 @@
-# Canvas Application :rocket:
+# Canvas Application :space_invader:
 
-#### Tip:
+<h3 align="center">
+  A Minimalist Canvas
+</h3>
 
-Try removing lines of code to see how it works together. Go slow, and read the documentation. Also, looking at different examples online might be helpful!
+#### Features: :art:
 
-#### Examples:
+- Pen tool
+- Draw straight line
+- Draw curve
+- Draw bezier curve
+- Draw circle
+- Draw rectangle
+- Draw triangle
+- Draw polygon
+- Insert text
+- Fill bucket
+- Filter
+- Eraser
+- Undo & redo
+- Zoom in & out
+- Upload image
+- Download image
+- Drag & drop
+- Clear all
+- Customizable stroke & fill color
 
-- the-canvas-boys.surge.sh
-- http://canvasg2march.surge.sh/
+<br>
 
-### How to run this package
+## Utilities: :moyai:
 
-- Make sure you clone the repository
-
-- Double click on index.html
-
-### How it works :open_book:
-
-In the javascript folder, there are various functionalities for the canvas application (please implement more, here)
-
-- javascript
-  - canvas-common.js
-  - drawing-line.js
-  - drawing-rectangle.js
-- css
-  - style.css
-
-## Sprint :athletic_shoe:
-
-| Done? | Component                         | Priority | Estimated Time | Actual Time |
-| ----- | --------------------------------- | :------: | :------------: | :---------: |
-|       | Read Documentation                |    M     |                |             |
-|       | Write down a list of requirements |    M     |                |             |
-|       | Look over the code                |    M     |                |             |
-|       | Functionality 1: Circle           |    M     |                |             |
-|       | Functionality 2: Eraser           |    M     |                |             |
-|       | Functionality 3: (You choose!)    |    M     |                |             |
-|       | Functionality 4:                  |    M     |                |             |
-|       | Functionality 5:                  |    M     |                |             |
-|       | Functionality 6:                  |    M     |                |             |
-
-- [Further Documentation and Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage)
-
-## Issues and Resolutions :flashlight:
-
-**ERROR**: :gear:
-**RESOLUTION**: :key:
-
-| Issue             | Where it occurs |  Possible solution   |   Actual solution    |
-| ----------------- | :-------------: | :------------------: | :------------------: |
-| Unsure what to do |        H        | Creating a checklist | Creating a checklist |
-
-#### What is one thing that I learned from doing this project? :books:
+| Features              | Description                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| Pen Tool              | Create shapes with freeform curves                                                  |
+| Draw straight line    | Draw a straight line                                                                |
+| Draw curve            | Draw a curve                                                                        |
+| Draw bezier curve     | Draw a bezier curve                                                                 |
+| Draw circle           | Draw a circle                                                                       |
+| Draw rectangle        | Draw a rectangle                                                                    |
+| Draw triangle         | Draw a triangle                                                                     |
+| Draw polygon          | Draw a polygon                                                                      |
+| Insert text           | Create text field for text input                                                    |
+| Fill bucket           | Fill an area with color                                                             |
+| Filter                | Apply brightness, contrast and blur to image                                        |
+| Eraser                | Rub out image                                                                       |
+| Undo                  | Reverse the actions                                                                 |
+| Redo                  | Restore any actions that were previouly undone                                      |
+| Zoom in & out         | Make the image appear larger / smaller                                              |
+| Upload image          | Upload your own image                                                               |
+| Download image        | Download your drawing                                                               |
+| Drag & drop           | Grab an object and drag it to a different location                                  |
+| Clear all             | Clear the canvas                                                                    |
+| Customizable features | Stroke & fill color, choose font, font size and stroke weight, polygon sides number |
