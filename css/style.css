@@ -118,6 +118,10 @@ label {
   position: absolute;
 }
 
+#canvas-real {
+  border: 5px solid transparent;
+}
+
 #canvas-draft {
   background-color: transparent;
   border: 5px solid #000;
