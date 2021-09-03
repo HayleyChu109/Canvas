@@ -36,7 +36,6 @@ class DrawingText extends PaintFunction {
         width: "30vw",
         padding: 0,
       });
-<<<<<<< HEAD
 
       $("#inputText").keydown((event) => {
         origArray = [];
@@ -89,26 +88,6 @@ class DrawingText extends PaintFunction {
     //   this.origY = [];
     //   this.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     // };
-=======
-  
-    $("#inputText").keydown((event) => {
-     
-      if (event.key === "Enter") {
-        let text = $("#inputText").val();
-        this.contextReal.fillText(text, this.origX, this.origY);
-        // console.log("Second origX", coord[0]);
-        console.log("Aaaaaaz", this.origX);
-        $("#inputText").val("");
-        $("#inputText").css("display", "none");
-        // this.origX = [];
-        // console.log("Third origX:", this.origX);
-        // this.origY = [];
-
-      var imgReady = true;
-      history(this.contextReal, `${imgReady}`);
-      }
-    });
->>>>>>> Hayley/Canvas
   }
 
   onMouseUp() {}
