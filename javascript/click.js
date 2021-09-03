@@ -55,4 +55,13 @@ $(() => {
     $("#drawing-polygon").click(() => {
       currentFunction = new DrawingPolygon(contextReal, contextDraft);
     })
+    $("#drawing-straightline").click(() => {
+      currentFunction = new DrawingStraightLine(contextReal, contextDraft);
+    });
+    $("#zoomIn").click(() => {
+      currentFunction = new ZoomIn(contextReal, contextDraft);
+    });
+    $("#zoomOut").click(() => {
+      currentFunction = new ZoomOut(contextReal, contextDraft);
+    });
   })
