@@ -1,7 +1,7 @@
 # Canvas Application :space_invader:
 
 <h3 align="center">
-  A minimalist Canvas
+  A Minimalist Canvas
 </h3>
 
 #### Features: :art:
