@@ -1,8 +1,3 @@
-/**********************************************
- * The Canvas
- * ==================================
- ***********************************************/
-
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext("2d");
 let canvasDraft = document.getElementById("canvas-draft");
@@ -46,8 +41,6 @@ $("#canvas-draft").mouseenter(function (e) {
   currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
-/** # Class (all classes will have these methods) #
-/*  ====================== */
 class PaintFunction {
   constructor() {}
   onMouseDown() {}
