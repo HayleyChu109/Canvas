@@ -125,6 +125,7 @@ label {
 #canvas-draft {
   background-color: transparent;
   border: 5px solid #000;
+  border-radius: 5px;
 }
 
 /* Below bg color for checking transparent eraser */

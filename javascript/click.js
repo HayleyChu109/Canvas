@@ -54,4 +54,12 @@ $(() => {
   $("#dragndrop").click(() => {
     currentFunction = new DragNDrop(contextReal, contextDraft);
   });
+  $("#zoomIn").click(() => {
+    currentFunction = new Zoom(contextReal);
+    zoom = true;
+  });
+  $("#zoomOut").click(() => {
+    currentFunction = new Zoom(contextReal);
+    zoom = false;
+  });
 });

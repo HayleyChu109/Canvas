@@ -16,7 +16,7 @@ class DrawingText extends PaintFunction {
     if (textBox === false) {
       origArray.push(coord[0], coord[1]);
       transArray.push(coord[0], coord[1] - 15);
-      this.contextReal.font = `${fontSize}px Arial`;
+      this.contextReal.font = `${fontSize}px ${fontStyle}`;
       this.contextReal.fillStyle = `${pickrColorStroke}`;
       console.log(`Origin Array: ${origArray}`);
       console.log(`Trans Array: ${transArray}`);
@@ -31,9 +31,10 @@ class DrawingText extends PaintFunction {
           "px) translateX(" +
           transArray[0] +
           "px)",
-        font: `${fontSize}px Arial`,
+        font: `${fontSize}px ${fontStyle}`,
         fontColor: `${pickrColorStroke}`,
-        width: "30vw",
+        backgroundColor: "transparent",
+        width: "20vw",
         padding: 0,
       });
 

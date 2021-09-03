@@ -1,5 +1,5 @@
 // Font size value
-let fontSize = 28;
+let fontSize = 40;
 
 $("#font-size").change(function () {
   fontSize = $("#font-size").val();
@@ -21,4 +21,10 @@ $("#polygonSide").change(function () {
   sideOfPolygon = $("#polygonSide").val();
   $("#side-of-polygon").html(sideOfPolygon);
   $("#drawing-polygon").click();
+});
+
+// Font style
+let fontStyle = "'Balsamiq Sans'";
+$("#fonts").change(function () {
+  fontStyle = $("#fonts").val();
 });

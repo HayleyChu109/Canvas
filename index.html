@@ -16,6 +16,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <!-- Google font for textbox -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Fredoka+One&family=Pacifico&family=Rampart+One&family=Roboto:wght@700&family=VT323&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -26,7 +30,7 @@
       <!-- Button section -->
       <div class="button-list grid">
         <!-- The drawing line button -->
-        <div class="item item-tool">
+        <div class="item item-tool item-active">
           <img src="logo/line.png" alt="line" id="drawing-line">
         </div>
         <div class="item item-tool">
@@ -118,16 +122,29 @@
       <div id="rangeslider">
         <div id="rangecontainer">
           <div class="slidecontainer">
-            <label for="font-size">Font size: <span id="font-size-number">28</span></label><br>
-            <input type="range" min="12" max="72" value="28" step="1" id="font-size">
+            <label for="polygonSide">Polygon sides: <span id="side-of-polygon">5</span></label><br>
+            <input type="range" min="5" max="10" value="5" id="polygonSide">
           </div>
           <div class="slidecontainer">
             <label for="stroke-weight">Stroke weight: <span id="stroke-weight-number">10</span></label><br>
             <input type="range" min="1" max="40" value="10" step="1" id="stroke-weight">
           </div>
           <div class="slidecontainer">
-            <label for="polygonSide">Polygon sides: <span id="side-of-polygon">5</span></label><br>
-            <input type="range" min="5" max="10" value="5" id="polygonSide">
+            <label for="font-size">Font size: <span id="font-size-number">40</span></label><br>
+            <input type="range" min="12" max="72" value="40" step="1" id="font-size">
+          </div>
+          <div class="font-droplist">
+            <form action="/action_page.php">
+              <label for="fonts">Font:</label>
+              <select name="fonts" id="fonts">
+                <option value="'Balsamiq Sans'">Balsamiq</option>
+                <option value="'Roboto'">Roboto</option>
+                <option value="'Fredoka One'">Fredoka</option>
+                <option value="'Pacifico'">Pacifico</option>
+                <option value="'Rampart One'">Rampart</option>
+                <option value="'VT323'">VT323</option>
+              </select>
+            </form>
           </div>
         </div>
 
