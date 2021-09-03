@@ -1,9 +1,3 @@
-/**********************************************
- * Drawing Line Functionality
- * ==================================
- * This class extends the PaintFunction class, which you can find in canvas-common
- * Remember, order matters
- ***********************************************/
 class DrawingLine extends PaintFunction {
   constructor(contextReal) {
     super();

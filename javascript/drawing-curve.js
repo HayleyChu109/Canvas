@@ -84,6 +84,9 @@ class DrawingCurve extends PaintFunction {
       );
       this.contextReal.stroke();
       this.click = 0;
+      this.endX = undefined;
+      this.endY = undefined;
+      
       imgReady = true;
       history(this.contextReal, imgReady);
       imgReady = false;

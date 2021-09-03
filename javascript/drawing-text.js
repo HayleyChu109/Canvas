@@ -72,23 +72,6 @@ class DrawingText extends PaintFunction {
       textBox = false;
       return;
     });
-
-    // reset = () => {
-    //   $("#inputText").css({
-    //     display: "none",
-    //     transform:
-    //       "translateY(" +
-    //       `${this.origY - 15}` +
-    //       "px) translateX(" +
-    //       `${this.origX}` +
-    //       "px)",
-    //   });
-    //   $("#inputText").val("");
-    //   this.origX = [];
-    //   console.log(this.origX);
-    //   this.origY = [];
-    //   this.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    // };
   }
 
   onMouseUp() {}
